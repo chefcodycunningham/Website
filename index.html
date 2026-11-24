@@ -1,0 +1,254 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Chef Cody Site Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;1,400&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a single reading column for the plan, which widens for the three direction cards and the comparison table. */
+:root{
+  --bg:#F7F8F5; --surface:#FFFFFF; --fg:#1B1E1C; --muted:#5B6560; --line:#DCE1DB;
+  --accent:#2F5243; --accent-soft:#E4ECE6; --flag:#F3E7C9; --flag-fg:#5A4614;
+  --display:"Old Standard TT", Georgia, serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121614; --surface:#1A201D; --fg:#E7ECE8; --muted:#9AA8A0; --line:#2C3530;
+  --accent:#8CC2A6; --accent-soft:#1F2D26; --flag:#3B3220; --flag-fg:#EBD49A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121614; --surface:#1A201D; --fg:#E7ECE8; --muted:#9AA8A0; --line:#2C3530;
+  --accent:#8CC2A6; --accent-soft:#1F2D26; --flag:#3B3220; --flag-fg:#EBD49A; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.65 var(--body)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.page{max-width:1100px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:48px 80px}
+.col{max-width:720px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.2rem,5vw,3.4rem)}
+h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-top:64px;padding-top:28px;border-top:1px solid var(--line)}
+h3{font-size:1.25rem}
+p{margin:12px 0 0}
+.eyebrow{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.lede{font-size:1.15rem;color:var(--muted)}
+ul,ol{padding-left:1.2em;margin:12px 0 0}
+li{margin-bottom:6px}
+strong{font-weight:600}
+.flag{background:var(--flag);color:var(--flag-fg);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px}
+/* funnel */
+.funnel{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:22px}
+.funnel div{background:var(--surface);border:1px solid var(--line);padding:14px;min-width:0}
+.funnel b{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.funnel span{display:block;margin-top:4px;font-weight:600;line-height:1.35}
+.funnel div.leak{border-color:#C9A24B;background:var(--flag);color:var(--flag-fg)}
+.funnel div.leak b{color:var(--flag-fg)}
+/* goals */
+.goals{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+.goal{background:var(--surface);border:1px solid var(--line);padding:18px 20px;min-width:0}
+.goal .n{font-family:var(--display);font-size:1.6rem;color:var(--accent);line-height:1}
+.goal h3{margin-top:8px}
+.goal p{color:var(--muted);font-size:.95rem;margin-top:6px}
+/* scenarios */
+.scen{display:grid;gap:12px;margin-top:20px}
+.sc{display:grid;grid-template-columns:200px 1fr;gap:20px;background:var(--surface);border:1px solid var(--line);padding:18px 20px}
+.sc.rec{border:2px solid var(--accent)}
+.sc h3{font-size:1.15rem}
+.sc .tag{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-top:6px;display:block}
+.sc p{margin:0;color:var(--muted);font-size:.95rem}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px;font-size:.9rem}
+.pc b{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.pc ul{margin-top:4px}
+/* directions */
+.dirs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.dir{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.dir img{width:100%;aspect-ratio:1280/820;object-fit:cover;object-position:top;border-bottom:1px solid var(--line);display:block}
+.dir .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.dir h3{font-size:1.4rem}
+.dir p{margin:0;color:var(--muted);font-size:.93rem}
+.dir .for{font-size:.85rem;color:var(--fg)}
+.dir .open{margin-top:auto;padding-top:10px;font-weight:600;text-decoration:none}
+.dir .open:hover{text-decoration:underline}
+.table-wrap{overflow-x:auto;margin-top:22px;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.92rem}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700}
+td:first-child{font-weight:600}
+tr:last-child td{border-bottom:0}
+/* rec */
+.rec-box{margin-top:22px;background:var(--accent-soft);border-left:3px solid var(--accent);padding:20px 22px}
+.rec-box h3{color:var(--fg)}
+.sitemap{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+.pg{background:var(--surface);border:1px solid var(--line);padding:16px 18px;min-width:0}
+.pg h3{font-size:1.1rem;display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap}
+.pg h3 small{font-family:var(--body);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pg p{color:var(--muted);font-size:.92rem;margin-top:6px}
+.check{list-style:none;padding:0}
+.check li{padding-left:28px;position:relative}
+.check li::before{content:"";position:absolute;left:0;top:.35em;width:14px;height:14px;border:1.5px solid var(--muted);border-radius:3px}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media (max-width:860px){.dirs{grid-template-columns:1fr}.funnel{grid-template-columns:1fr 1fr}.sc{grid-template-columns:1fr;gap:8px}}
+@media (max-width:600px){.goals,.sitemap,.pc,.cols2{grid-template-columns:1fr}.funnel{grid-template-columns:1fr}}
+</style>
+</head><body>
+
+<main class="page">
+<div class="col">
+  <p class="eyebrow">chefcodycunningham.com · Redesign plan · November 2026</p>
+  <h1>A website that books the dinners word of mouth starts</h1>
+  <p class="lede">Your bookings come from people talking about you in the Vail Valley. This site's job is to turn "you should call Cody" into a confirmed date, and to answer the price question before anyone asks it.</p>
+</div>
+
+<h2>Where bookings leak today</h2>
+<div class="col">
+  <p>Most clients follow a path like this. Today the site does little at the "Looks you up" step, and prices only show up in the menu PDF you email them.</p>
+</div>
+<div class="funnel">
+  <div><b>1 · Hears</b><span>A friend, concierge or host mentions you</span></div>
+  <div><b>2 · Looks you up</b><span>Googles your name or taps your Instagram</span></div>
+  <div><b>3 · Inquires</b><span>Calls, texts or fills a 5-field form</span></div>
+  <div class="leak"><b>4 · Gets prices</b><span>You email menus and prices. Many go quiet here.</span></div>
+  <div><b>5 · Books</b><span>Deposit, menu, dinner</span></div>
+</div>
+<div class="col">
+  <p>Silence after step 4 usually means price or fit: they wanted something cheaper, or something different. You can't fix that by email. You fix it by moving the price earlier, so step 3 only happens when the budget already fits. You'll get fewer inquiries, but each will be worth more and cost you less time.</p>
+</div>
+
+<h2>What the site is for</h2>
+<div class="goals">
+  <div class="goal"><div class="n">1</div><h3>Close the referral</h3><p>Someone who has just heard your name should know within 30 seconds that you're legit, what you cook, roughly what it costs, and how to book.</p></div>
+  <div class="goal"><div class="n">2</div><h3>Filter before the inbox</h3><p>Public starting prices, minimums and a budget question on the form screen out bad fits before you write a menu.</p></div>
+  <div class="goal"><div class="n">3</div><h3>Be the link you send</h3><p>Every reply, text and business card points to one page, /menus, which is always current. No more PDFs.</p></div>
+  <div class="goal"><div class="n">4</div><h3>Know who refers you</h3><p>A "Who referred you?" field shows which friends, concierges and property managers send work, so you can thank them and win more.</p></div>
+</div>
+<div class="col">
+  <p><strong>Secondary goal:</strong> show up when visitors search "private chef Vail" or "Beaver Creek private chef." The site helps here, but a Google Business Profile with reviews will do more. Set one up alongside the site.</p>
+</div>
+
+<h2>Four ways to handle pricing</h2>
+<div class="col"><p>This is the biggest decision, because it decides what kind of inquiries you get.</p></div>
+<div class="scen">
+  <div class="sc">
+    <div><h3>Open book</h3><span class="tag">Full price list</span></div>
+    <div><p>Every format with a fixed per-guest price, add-ons and fees, all public.</p>
+    <div class="pc"><div><b>Good</b><ul><li>Strongest filter, fewest ghosts</li><li>Inquiries arrive pre-sold</li></ul></div><div><b>Watch</b><ul><li>Hard to price special requests</li><li>Competitors see your numbers</li></ul></div></div></div>
+  </div>
+  <div class="sc rec">
+    <div><h3>"Starting at"</h3><span class="tag">Recommended</span></div>
+    <div><p>Each format shows a "from" price per guest and a minimum booking, and lists what's included. The exact quote comes with the custom menu.</p>
+    <div class="pc"><div><b>Good</b><ul><li>Filters out the bottom of the market</li><li>Leaves room for premium menus</li><li>Feels like a restaurant menu, not a rate card</li></ul></div><div><b>Watch</b><ul><li>Set floors honestly, or you'll still get sticker shock</li></ul></div></div></div>
+  </div>
+  <div class="sc">
+    <div><h3>Gated menu</h3><span class="tag">Email for prices</span></div>
+    <div><p>Menus are public. Prices arrive by email after someone enters their details.</p>
+    <div class="pc"><div><b>Good</b><ul><li>Captures contacts you can follow up with</li></ul></div><div><b>Watch</b><ul><li>Adds friction for warm referrals</li><li>Doesn't fix ghosting, just moves it</li></ul></div></div></div>
+  </div>
+  <div class="sc">
+    <div><h3>Budget-first</h3><span class="tag">No public prices</span></div>
+    <div><p>No prices on the site, but the form asks for a budget per guest in bands.</p>
+    <div class="pc"><div><b>Good</b><ul><li>People tell you their budget</li></ul></div><div><b>Watch</b><ul><li>People guess low when they don't know your range</li></ul></div></div></div>
+  </div>
+</div>
+<div class="col"><p><strong>Recommendation:</strong> show "Starting at" prices, plus a budget question on the form. All three mockups use this. Their prices are <span class="flag">placeholders</span> until you send your real numbers.</p></div>
+
+<h2>Three design directions</h2>
+<div class="col"><p>Each direction is a different strategy as well as a different look. Open them on your phone too, since most referrals will see the site there first.</p></div>
+<div class="dirs">
+  <article class="dir">
+    <img src="assets/shots/a-follow-up.jpg" alt="Mockup A, a light single page with a dish photo and a booking button">
+    <div class="body">
+      <p class="eyebrow">A</p><h3>The Follow-Up</h3>
+      <p>One calm page that answers a referred guest's questions in order: who you are, how it works, prices, menus, story, FAQ, inquiry. Keeps your current typeface for continuity.</p>
+      <p class="for"><strong>Best if</strong> almost all your business is word of mouth and you want the simplest site to run.</p>
+      <a class="open" href="a-follow-up.html">Open mockup A →</a>
+    </div>
+  </article>
+  <article class="dir">
+    <img src="assets/shots/b-menu-book.jpg" alt="Mockup B, a dark page with a printed menu card on slate">
+    <div class="body">
+      <p class="eyebrow">B</p><h3>The Menu Book</h3>
+      <p>Your menus are the homepage, set like a printed menu card on slate, with tabs for each format and its price. Moody, photo-led, closest to a fine-dining restaurant.</p>
+      <p class="for"><strong>Best if</strong> you want the menus and prices to do the selling, and want one link to send after every inquiry.</p>
+      <a class="open" href="b-menu-book.html">Open mockup B →</a>
+    </div>
+  </article>
+  <article class="dir">
+    <img src="assets/shots/c-valley-concierge.jpg" alt="Mockup C, a bright page with bold headings and an occasion picker">
+    <div class="body">
+      <p class="eyebrow">C</p><h3>Valley Concierge</h3>
+      <p>Built for visitors and the people who host them. Plan by occasion (ski week, dinner party, après), with a service-area map, a when-to-book calendar and a page for concierges.</p>
+      <p class="for"><strong>Best if</strong> you want more vacation-rental and multi-night work, and more referrals from property managers.</p>
+      <a class="open" href="c-valley-concierge.html">Open mockup C →</a>
+    </div>
+  </article>
+</div>
+<div class="table-wrap">
+<table>
+  <thead><tr><th></th><th>A · Follow-Up</th><th>B · Menu Book</th><th>C · Valley Concierge</th></tr></thead>
+  <tbody>
+    <tr><td>Main visitor</td><td>Friend of a past client</td><td>Anyone weighing price and food</td><td>Visitor, host or concierge</td></tr>
+    <tr><td>Pages</td><td>1 long page</td><td>Menus home + 3 short pages</td><td>4–5 pages incl. partners</td></tr>
+    <tr><td>How it sells</td><td>Trust, then clarity</td><td>The food and the menu</td><td>Convenience and logistics</td></tr>
+    <tr><td>Feel</td><td>Light, editorial, warm</td><td>Dark, fine dining</td><td>Bright, modern, alpine</td></tr>
+    <tr><td>Upkeep</td><td>Lowest</td><td>Update menus seasonally</td><td>Highest (seasons, partners)</td></tr>
+    <tr><td>Risk</td><td>Plain if photos are weak</td><td>Can feel formal for family-style</td><td>Less personal, more "service"</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="rec-box col" style="max-width:none">
+  <h3>My recommendation</h3>
+  <p>Combine them. Use A's single-page structure for the homepage, B's menu card as a dedicated <strong>/menus</strong> page (the link you send every inquiry), and C's occasion picker as an "In-residence &amp; ski weeks" section if multi-night work is something you want more of. Mix and match freely. The styles can be swapped too, for example A's structure in B's dark look.</p>
+</div>
+
+<h2>Proposed site map</h2>
+<div class="col"><p>Shorter than today: four core pages instead of five, and no empty cart page.</p></div>
+<div class="sitemap">
+  <div class="pg"><h3>Home <small>Core</small></h3><p>Who you are, how it works, starting prices, a menu teaser, short bio, testimonials, inquiry form.</p></div>
+  <div class="pg"><h3>Menus &amp; Pricing <small>Core · /menus</small></h3><p>Every format with a sample menu, starting price, minimum and what's included. The page you link from every reply.</p></div>
+  <div class="pg"><h3>About <small>Core</small></h3><p>Your story, career timeline and portrait. Today's bio, trimmed by about half.</p></div>
+  <div class="pg"><h3>Inquire <small>Core</small></h3><p>The form with date, guests, town, format, budget band and referrer. Also your phone and Instagram.</p></div>
+  <div class="pg"><h3>FAQ <small>New</small></h3><p>Groceries, deposits, cancellations, allergies, wine, kitchens, travel. Answers the questions you get asked every time.</p></div>
+  <div class="pg"><h3>Ski weeks &amp; in-residence <small>New · optional</small></h3><p>Multi-night stays: day rates, sample week, breakfast and lunch options.</p></div>
+  <div class="pg"><h3>For concierges <small>New · optional</small></h3><p>A partner sheet, quick-booking line and a link to share with guests.</p></div>
+  <div class="pg"><h3>Gallery <small>New · optional</small></h3><p>Your favorite photos in a grid. Could also live on Home and lean on Instagram.</p></div>
+  <div class="pg"><h3>Gift a dinner <small>New · idea</small></h3><p>Gift certificates for anniversaries and holidays. Sells well before Christmas.</p></div>
+  <div class="pg"><h3>Consulting <small>Existing · keep small</small></h3><p>Restaurant consulting stays as one line with a "contact me" link unless it's a real focus.</p></div>
+</div>
+
+<h2>What I need from you</h2>
+<div class="cols2">
+  <div>
+    <h3>To make it real</h3>
+    <ul class="check">
+      <li>Your price sheet (the one you email), or starting prices per format</li>
+      <li>Minimums, deposit, cancellation, gratuity and travel policies</li>
+      <li>Whether groceries are included or billed at cost</li>
+      <li>The current menus you send out</li>
+      <li>Your favorite photos (the "Photos a la food" folder)</li>
+      <li>A newer portrait, ideally cooking or at a table</li>
+    </ul>
+  </div>
+  <div>
+    <h3>To make it stronger</h3>
+    <ul class="check">
+      <li>3–5 short quotes from past clients, with permission to use first name and town</li>
+      <li>One quote from a concierge or property manager</li>
+      <li>Your sommelier partner's name, if you'd like to credit them</li>
+      <li>Any press, awards or notable events</li>
+      <li>Which work you want more of: dinners, ski weeks, events or classes</li>
+    </ul>
+  </div>
+</div>
+
+<h2>How it gets built</h2>
+<div class="col">
+  <ol>
+    <li><strong>Hosting:</strong> GitHub Pages, free. Your domain chefcodycunningham.com points to it, and you can cancel Squarespace once it's live.</li>
+    <li><strong>Inquiry form:</strong> GitHub Pages can't receive form submissions, so the form will send through a free service such as Formspree, straight to your email.</li>
+    <li><strong>Photos:</strong> cropped, color-corrected and compressed so pages load fast on mountain cell service.</li>
+    <li><strong>Search:</strong> page titles, descriptions and local business markup for Vail, Beaver Creek, Edwards and Avon. Pair this with a Google Business Profile.</li>
+    <li><strong>Your reply email:</strong> a saved template that links to /menus and asks for a deposit to hold the date. That's where the ghosting gets fixed.</li>
+  </ol>
+  <p style="margin-top:20px"><strong>Next step:</strong> pick a direction (or a mix), send me your prices and your favorite photos, and I'll build the full site.</p>
+</div>
+</main>
+</body></html>

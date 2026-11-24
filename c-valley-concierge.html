@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Chef in the Valley · Cody Cunningham</title>
+<meta name="description" content="Private chef for Vail Valley homes, vacation rentals and ski weeks. Dinner parties, après, celebrations and multi-night stays.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400;62..125,600;62..125,800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+<style>
+/* Direction C, "Valley Concierge": a trail-map style guide for visitors and the concierges who look after them. Sorted by occasion, with a service map and a season planner. */
+:root{
+  --snow:#F3F5F4; --white:#FFFFFF; --ink:#13201C; --muted:#56635E; --line:#D3DBD8;
+  --spruce:#1F4437; --spruce-2:#2B5A49; --aspen:#E0B53E; --sky:#D9E6EA;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"Newsreader", Georgia, serif;
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gutr:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--snow);color:var(--ink);font:18px/1.6 var(--body)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--aspen);outline-offset:2px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
+h1,h2,h3,.label,.btn,nav{font-family:var(--display)}
+h1,h2,h3{margin:0;text-wrap:balance;line-height:1.02;font-weight:800;font-stretch:80%;text-transform:uppercase;letter-spacing:-.005em}
+h2{font-size:clamp(2rem,4.4vw,3.4rem)}
+h3{font-size:1.25rem;font-stretch:90%}
+p{margin:0}
+.label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.mockbar{background:var(--ink);color:#C6D0CC;font:500 .78rem var(--display)}
+.mockbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:8px}
+.ph{background:var(--aspen);color:var(--ink);font:600 .6rem var(--display);letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;white-space:nowrap;vertical-align:middle}
+header{background:var(--white);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:24px;padding-block:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.logo svg{width:34px;height:34px}
+.logo b{font:800 1rem/1.05 var(--display);font-stretch:75%;text-transform:uppercase;letter-spacing:.02em}
+.logo b span{display:block;font-weight:600;font-size:.7rem;letter-spacing:.14em;color:var(--muted)}
+nav{display:flex;gap:22px;font-size:.88rem;font-weight:600;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:.9rem;padding:13px 20px;border-radius:999px;border:2px solid var(--spruce);cursor:pointer}
+.btn.solid{background:var(--spruce);color:#fff}
+.btn.solid:hover{background:var(--spruce-2)}
+.btn.line{color:var(--spruce);background:transparent}
+.btn.gold{background:var(--aspen);border-color:var(--aspen);color:var(--ink)}
+/* hero */
+.hero{background:var(--white)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);padding-block:clamp(36px,6vw,72px);align-items:center}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5.4rem)}
+.hero h1 span{color:var(--spruce)}
+.hero p.lede{font-size:1.2rem;color:var(--muted);margin-top:20px;max-width:30em}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-photos{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:clamp(320px,44vw,520px)}
+.hero-photos img{width:100%;height:100%;object-fit:cover;border-radius:6px}
+.hero-photos img:first-child{grid-row:span 2}
+.trust{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px;font:600 .8rem var(--display);color:var(--muted)}
+.trust b{display:block;font-size:1.4rem;color:var(--ink);font-weight:800;font-stretch:80%}
+/* occasions */
+.occ{padding-block:clamp(64px,8vw,100px)}
+.occ-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.occ-head p{max-width:28em;color:var(--muted)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
+.chips button{font:600 .88rem var(--display);padding:11px 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--white);color:var(--ink);cursor:pointer}
+.chips button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.occ-panel{margin-top:20px;background:var(--white);border:1px solid var(--line);border-radius:10px;display:grid;grid-template-columns:1fr 1.1fr;overflow:hidden}
+.occ-panel img{width:100%;height:100%;object-fit:cover;min-height:320px}
+.occ-body{padding:clamp(22px,4vw,44px);display:grid;gap:18px;align-content:start}
+.occ-body h3{font-size:clamp(1.6rem,3vw,2.2rem);font-stretch:80%}
+.occ-body p{color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.facts div{background:var(--snow);padding:12px 14px;min-width:0}
+.facts b{display:block;font:800 1.3rem var(--display);font-stretch:85%;font-variant-numeric:tabular-nums}
+.facts span{font:600 .68rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.occ-body ul{margin:0;padding-left:1.1em;color:var(--muted)}
+/* map + seasons */
+.where{background:var(--spruce);color:#E6EEE9;padding-block:clamp(64px,8vw,100px)}
+.where .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px)}
+.where .wrap>div{min-width:0}
+.where .label{color:#9FC1B2}
+.where h2{color:#fff}
+.where p.sub{color:#C2D4CB;margin-top:14px;max-width:30em}
+.map{margin-top:28px;background:var(--spruce-2);border-radius:10px;padding:10px;overflow-x:auto}
+.map svg{width:100%;min-width:520px;height:auto;display:block}
+.towns{list-style:none;margin:0;padding:0;display:grid;font-family:var(--display);font-size:.95rem}
+.towns li{display:flex;justify-content:space-between;gap:12px;padding-block:11px;border-bottom:1px solid rgba(255,255,255,.14)}
+.towns li span{color:#9FC1B2;font-variant-numeric:tabular-nums;white-space:nowrap}
+.seasons{margin-top:36px}
+.seasons h3{color:#fff}
+.cal{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;margin-top:14px}
+.cal div{background:rgba(255,255,255,.1);border-radius:3px;padding:10px 0 6px;text-align:center;font:600 .66rem var(--display);letter-spacing:.06em}
+.cal div.peak{background:var(--aspen);color:var(--ink)}
+.cal div.busy{background:rgba(224,181,62,.4)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font:500 .78rem var(--display);color:#C2D4CB}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+/* chef */
+.chef{padding-block:clamp(64px,8vw,100px)}
+.chef .wrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+.chef img{width:clamp(200px,26vw,320px);aspect-ratio:1;object-fit:cover;object-position:center 18%;border-radius:50%}
+.chef p{color:var(--muted);margin-top:14px;max-width:38em}
+.stops{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.stops span{font:600 .78rem var(--display);background:var(--white);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+/* partners */
+.partners{background:var(--sky);padding-block:clamp(56px,7vw,88px)}
+.partners .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+.partners p{color:#3D4B47;margin-top:14px}
+.perks{display:grid;gap:12px}
+.perks div{background:var(--white);border-radius:8px;padding:16px 18px}
+.perks b{font:700 1rem var(--display)}
+.perks p{margin-top:4px;font-size:.95rem;color:var(--muted)}
+/* book */
+.book{padding-block:clamp(64px,8vw,100px)}
+.book .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,64px)}
+.book p.sub{color:var(--muted);margin-top:14px}
+.contact-line{margin-top:24px;font:800 1.8rem var(--display);font-stretch:80%}
+form{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:clamp(18px,3vw,32px);display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f{display:grid;gap:6px;min-width:0}
+.f.full{grid-column:1/-1}
+label{font:600 .75rem var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+input,select,textarea{font:16px var(--body);padding:11px 12px;border:1.5px solid var(--line);border-radius:6px;background:var(--snow);color:var(--ink);width:100%}
+textarea{min-height:84px;resize:vertical}
+.sent{grid-column:1/-1;background:var(--spruce);color:#fff;padding:12px 14px;border-radius:6px;font-size:.95rem}
+footer{background:var(--ink);color:#B7C2BE;font:500 .85rem var(--display)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:30px}
+footer a{color:#fff}
+@media (max-width:920px){
+  .hero .wrap,.occ-panel,.where .wrap,.partners .wrap,.book .wrap{grid-template-columns:1fr}
+  .occ-panel img{min-height:220px;max-height:300px}
+  .chef .wrap{grid-template-columns:1fr}
+  nav{display:none}
+}
+@media (max-width:540px){
+  form,.facts{grid-template-columns:1fr}
+  .cal{grid-template-columns:repeat(6,1fr)}
+  .hero-photos{height:300px}
+}
+</style>
+</head>
+<body>
+<div class="mockbar"><div class="wrap"><span>Mockup C · Valley Concierge · Prices and policies marked <span class="ph">placeholder</span> are stand-ins</span><a href="index.html">← All directions</a></div></div>
+
+<header><div class="wrap">
+  <a class="logo" href="#">
+    <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="#1F4437"/><path d="M6 24 L13 13 L17 19 L21 12 L28 24 Z" fill="#F3F5F4"/><path d="M19 15 L21 12 L23 15 Z" fill="#E0B53E"/></svg>
+    <b>Cody Cunningham<span>Private Chef · Vail Valley</span></b>
+  </a>
+  <nav aria-label="Main"><a href="#occasions">Occasions &amp; pricing</a><a href="#where">Where &amp; when</a><a href="#partners">For concierges</a></nav>
+  <a class="btn solid" href="#book">Book a chef</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="label">Vail · Beaver Creek · Edwards · Summit County · Aspen</p>
+    <h1 style="margin-top:14px">Your private chef <span>in the mountains.</span></h1>
+    <p class="lede">From a single anniversary dinner to a full ski week, I shop, cook, serve and clean up in your home or rental, so your group can spend the day on the mountain and the night at the table.</p>
+    <div class="ctas"><a class="btn solid" href="#occasions">Plan by occasion</a><a class="btn line" href="#book">Check availability</a></div>
+    <div class="trust">
+      <div><b>Larkspur</b>Former executive chef, Vail</div>
+      <div><b>20+ yrs</b>Four countries</div>
+      <div><b>24 hrs</b>Reply with a menu</div>
+    </div>
+  </div>
+  <div class="hero-photos">
+    <img src="assets/img/salmon-crudo.jpg" alt="Salmon crudo plated for a dinner party" style="object-position:30% center">
+    <img src="assets/img/charcuterie.jpg" alt="Cheese and charcuterie board">
+    <img src="assets/img/peach-salad.jpg" alt="Peach salad with herbs" style="object-position:center 40%">
+  </div>
+</div></section>
+
+<section class="occ" id="occasions"><div class="wrap">
+  <div class="occ-head">
+    <div><p class="label">Occasions &amp; pricing</p><h2 style="margin-top:10px">What's the plan?</h2></div>
+    <p>Pick the closest match to see how it works and what it costs. Every menu is custom.</p>
+  </div>
+  <div class="chips" role="tablist" aria-label="Occasions">
+    <button role="tab" aria-selected="true" aria-controls="o-ski" id="c-ski">Ski week</button>
+    <button role="tab" aria-selected="false" aria-controls="o-dinner" id="c-dinner">Dinner party</button>
+    <button role="tab" aria-selected="false" aria-controls="o-apres" id="c-apres">Après &amp; cocktails</button>
+    <button role="tab" aria-selected="false" aria-controls="o-celebrate" id="c-celebrate">Celebration</button>
+    <button role="tab" aria-selected="false" aria-controls="o-class" id="c-class">Cooking class</button>
+  </div>
+
+  <div class="occ-panel" role="tabpanel" id="o-ski" aria-labelledby="c-ski">
+    <img src="assets/img/wagyu-onion-mousse.jpg" alt="Wagyu with caramelized onion mousse">
+    <div class="occ-body">
+      <p class="label">Multi-night · In residence</p>
+      <h3>The ski week</h3>
+      <p>Dinner waiting when you come off the hill, for three to seven nights. Mix plated nights with family-style feasts and a cocktail night, and I'll stock breakfast too.</p>
+      <div class="facts"><div><b>$110</b><span>Per guest / night, from <span class="ph">placeholder</span></span></div><div><b>3–7</b><span>Nights</span></div><div><b>4–16</b><span>Guests</span></div></div>
+      <ul><li>Groceries, cooking, service and cleanup included</li><li>Book 6–8 weeks out for holiday weeks</li></ul>
+    </div>
+  </div>
+  <div class="occ-panel" role="tabpanel" id="o-dinner" aria-labelledby="c-dinner" hidden>
+    <img src="assets/img/duck-breast.jpg" alt="Duck breast, peppers, pear, peas">
+    <div class="occ-body">
+      <p class="label">One evening · Plated or family style</p>
+      <h3>The dinner party</h3>
+      <p>A five-to-seven course tasting menu, or generous platters for the table. Add a sommelier pairing for each course.</p>
+      <div class="facts"><div><b>$125</b><span>Per guest, from <span class="ph">placeholder</span></span></div><div><b>2–20</b><span>Guests</span></div><div><b>2–4 wks</b><span>Notice</span></div></div>
+      <ul><li>Tasting menus from $185 per guest <span class="ph">placeholder</span></li><li>Sommelier pairing +$85 per guest</li></ul>
+    </div>
+  </div>
+  <div class="occ-panel" role="tabpanel" id="o-apres" aria-labelledby="c-apres" hidden>
+    <img src="assets/img/king-crab-caviar.jpg" alt="King crab and caviar">
+    <div class="occ-body">
+      <p class="label">Standing · Passed bites</p>
+      <h3>Après &amp; cocktails</h3>
+      <p>Passed hors d'oeuvres and a grazing board for a crowd: king crab, cured salmon chips, uni, crudités and charcuterie.</p>
+      <div class="facts"><div><b>$95</b><span>Per guest, from <span class="ph">placeholder</span></span></div><div><b>15–60</b><span>Guests</span></div><div><b>2–3 hrs</b><span>Service</span></div></div>
+      <ul><li>Extra servers for groups over 30</li><li>Bar staff on request</li></ul>
+    </div>
+  </div>
+  <div class="occ-panel" role="tabpanel" id="o-celebrate" aria-labelledby="c-celebrate" hidden>
+    <img src="assets/img/caviar.jpg" alt="Caviar service">
+    <div class="occ-body">
+      <p class="label">Birthdays · Anniversaries · Rehearsal dinners</p>
+      <h3>The celebration</h3>
+      <p>A menu written around the guest of honor, with caviar service, wagyu or a white-truffle course when the night calls for it.</p>
+      <div class="facts"><div><b>$185</b><span>Per guest, from <span class="ph">placeholder</span></span></div><div><b>2–40</b><span>Guests</span></div><div><b>4+ wks</b><span>Notice</span></div></div>
+      <ul><li>Premium courses quoted at cost</li><li>Rehearsal dinners: ask about service staff</li></ul>
+    </div>
+  </div>
+  <div class="occ-panel" role="tabpanel" id="o-class" aria-labelledby="c-class" hidden>
+    <img src="assets/img/stuffed-calamari.jpg" alt="Stuffed calamari">
+    <div class="occ-body">
+      <p class="label">Hands-on · About 3 hours</p>
+      <h3>The cooking class</h3>
+      <p>Cook a full menu together in your kitchen, then sit down and eat it. Great for families and team offsites.</p>
+      <div class="facts"><div><b>$145</b><span>Per guest, from <span class="ph">placeholder</span></span></div><div><b>4–10</b><span>Guests</span></div><div><b>3 hrs</b><span>Class</span></div></div>
+      <ul><li>Recipes to take home</li><li>Kids welcome with an adult</li></ul>
+    </div>
+  </div>
+</div></section>
+
+<section class="where" id="where"><div class="wrap">
+  <div>
+    <p class="label">Where &amp; when</p>
+    <h2 style="margin-top:10px">Based in Avon. Cooking up and down the valley.</h2>
+    <p class="sub">No travel fee within the Vail Valley. Summit County and Aspen are welcome with a travel fee. <span class="ph">confirm</span></p>
+    <div class="map" role="img" aria-label="Map of service area along I-70 from Summit County to Eagle, with Aspen to the south">
+      <svg viewBox="0 0 560 230">
+        <path d="M20 70 C 120 60, 170 110, 260 105 S 420 60, 540 80" fill="none" stroke="#9FC1B2" stroke-width="3" stroke-dasharray="1 0"/>
+        <text x="540" y="70" fill="#9FC1B2" font-family="Archivo" font-size="11" text-anchor="end">I-70</text>
+        <path d="M240 160 L 270 120 L 300 160 Z M 120 150 L 150 110 L 180 150 Z M 380 160 L 415 110 L 450 160 Z" fill="#335F4F"/>
+        <path d="M262 108 L 238 210" fill="none" stroke="#9FC1B2" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <g font-family="Archivo" font-size="12" font-weight="600" fill="#FFFFFF">
+          <circle cx="72" cy="68" r="5" fill="#F3F5F4"/><text x="72" y="52" text-anchor="middle">Eagle</text>
+          <circle cx="168" cy="92" r="5" fill="#F3F5F4"/><text x="168" y="122" text-anchor="middle">Edwards</text>
+          <circle cx="222" cy="104" r="9" fill="#E0B53E"/><text x="222" y="88" text-anchor="middle" fill="#E0B53E">Avon · home base</text>
+          <circle cx="238" cy="126" r="5" fill="#F3F5F4"/><text x="252" y="143">Beaver Creek</text>
+          <circle cx="330" cy="92" r="5" fill="#F3F5F4"/><text x="330" y="78" text-anchor="middle">Vail</text>
+          <circle cx="500" cy="78" r="5" fill="#F3F5F4"/><text x="500" y="102" text-anchor="middle">Summit County</text>
+          <circle cx="238" cy="212" r="5" fill="#F3F5F4"/><text x="252" y="216">Aspen (seasonal)</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div>
+    <ul class="towns">
+      <li>Avon &amp; Beaver Creek<span>5–10 min</span></li>
+      <li>Edwards &amp; Cordillera<span>10–20 min</span></li>
+      <li>Vail &amp; East Vail<span>15–25 min</span></li>
+      <li>Eagle &amp; Gypsum<span>25–35 min</span></li>
+      <li>Summit County<span>about 1 hr</span></li>
+      <li>Aspen &amp; Snowmass<span>about 2 hrs</span></li>
+    </ul>
+    <p style="font:500 .75rem var(--display);color:#9FC1B2;margin-top:8px">Approximate drive times from Avon in good weather.</p>
+    <div class="seasons">
+      <h3>When to book early</h3>
+      <div class="cal" aria-label="Booking demand by month">
+        <div class="peak">Jan</div><div class="peak">Feb</div><div class="peak">Mar</div><div>Apr</div><div>May</div><div class="busy">Jun</div><div class="peak">Jul</div><div class="busy">Aug</div><div class="busy">Sep</div><div>Oct</div><div>Nov</div><div class="peak">Dec</div>
+      </div>
+      <div class="legend"><span><i style="background:var(--aspen)"></i>Book 6–8 weeks out</span><span><i style="background:rgba(224,181,62,.4)"></i>Book 3–4 weeks out</span><span><i style="background:rgba(255,255,255,.1)"></i>Usually open</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="chef"><div class="wrap">
+  <img src="assets/img/portrait.jpg" alt="Chef Cody Cunningham">
+  <div>
+    <p class="label">Your chef</p>
+    <h2 style="margin-top:10px">Cody Cunningham</h2>
+    <p>Former executive chef of Larkspur in Vail and senior sous chef at Sweet Basil and Mountain Standard. Before that, head chef in Byron Bay and Melbourne and founder of a nonprofit café on a permaculture farm in India. Raised in Bozeman on wild game and foraged mushrooms, and now based in Avon with my Italian wife.</p>
+    <div class="stops"><span>Bozeman, MT</span><span>Tamil Nadu, India</span><span>Melbourne</span><span>Byron Bay</span><span>Vail, CO</span></div>
+  </div>
+</div></section>
+
+<section class="partners" id="partners"><div class="wrap">
+  <div>
+    <p class="label">For concierges &amp; property managers</p>
+    <h2 style="margin-top:10px">Send your guests to a chef you can count on.</h2>
+    <p>The people who look after valley homes are some of my best referrers. Share this page, or call me direct and I'll take it from there.</p>
+    <div style="margin-top:24px"><a class="btn solid" href="#book">Get the partner sheet</a></div>
+  </div>
+  <div class="perks">
+    <div><b>One-page partner sheet</b><p>Formats, starting prices and booking steps to hand straight to guests.</p></div>
+    <div><b>Same-day reply</b><p>Guests arriving this week? Call or text and I'll tell you right away if I'm free.</p></div>
+    <div><b>Kitchen-ready, rental-safe</b><p>Insured, careful with owners' kitchens, and everything leaves with me. <span class="ph">confirm insurance</span></p></div>
+  </div>
+</div></section>
+
+<section class="book" id="book"><div class="wrap">
+  <div>
+    <p class="label">Book a chef</p>
+    <h2 style="margin-top:10px">Check availability</h2>
+    <p class="sub">Send the basics. I'll reply within 24 hours with availability and a draft menu.</p>
+    <p class="contact-line">970-470-2339</p>
+    <p class="sub" style="margin-top:4px">Call or text · <a href="https://www.instagram.com/chefcodycunningham/">@chefcodycunningham</a></p>
+  </div>
+  <form id="bk" novalidate>
+    <div class="f"><label for="b-name">Name</label><input id="b-name"></div>
+    <div class="f"><label for="b-email">Email or phone</label><input id="b-email"></div>
+    <div class="f"><label for="b-arr">Arriving</label><input id="b-arr" type="date"></div>
+    <div class="f"><label for="b-dep">Leaving</label><input id="b-dep" type="date"></div>
+    <div class="f"><label for="b-guests">Guests</label><input id="b-guests" type="number" min="1"></div>
+    <div class="f"><label for="b-occ">Occasion</label><select id="b-occ"><option>Ski week</option><option>Dinner party</option><option>Après &amp; cocktails</option><option>Celebration</option><option>Cooking class</option></select></div>
+    <div class="f full"><label for="b-where">Where you're staying</label><input id="b-where" placeholder="Town, or the home's name if it's a rental"></div>
+    <div class="f full"><label for="b-ref">Referred by</label><input id="b-ref" placeholder="Friend, concierge, property manager…"></div>
+    <div class="f full"><label for="b-notes">Dietary needs and notes</label><textarea id="b-notes"></textarea></div>
+    <div><button class="btn gold" type="submit">Check availability</button></div>
+    <p class="sent" id="b-sent" hidden>Mockup only. On the live site this sends your request to Cody.</p>
+  </form>
+</div></section>
+
+<footer><div class="wrap"><span>Chef Cody Cunningham · Avon, Colorado</span><span>970-470-2339 · <a href="https://www.instagram.com/chefcodycunningham/">Instagram</a></span></div></footer>
+<script>
+const chips=[...document.querySelectorAll('.chips [role=tab]')];
+chips.forEach(c=>c.addEventListener('click',()=>{chips.forEach(x=>{const on=x===c;x.setAttribute('aria-selected',on);document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});}));
+document.getElementById('bk').addEventListener('submit',e=>{e.preventDefault();document.getElementById('b-sent').hidden=false;});
+</script>
+</body>
+</html>
