@@ -1,0 +1,22 @@
+{
+  "season": "Winter 2026–2027",
+  "source": "seasons/2026-27-winter/menu.md",
+  "prices": {
+    "Steak Night": "$850 chef fee · $120 per person",
+    "Surf and Turf": "$850 chef fee · $125 per person",
+    "Italian Favorites": "$850 chef fee · $110 per person",
+    "Sushi Night": "$1,000 chef fee · $150 per person · Minimum 6 guests",
+    "Sushi Making Workshop": "$1,100 chef fee · $150 per person · Minimum 6 guests",
+    "Korean BBQ: An Asian Lettuce-Cup Taco Bar": "$900 chef fee · $135 per person · Minimum 6 guests",
+    "Indian Feast": "$900 chef fee · $110 per person · Can be made vegetarian",
+    "Mediterranean Surf and Turf": "$900 chef fee · $115 per person",
+    "Pizza Party": "$850 chef fee · $110 per person",
+    "The Classic": "$900 chef fee · $115 per person",
+    "The Bistro": "$900 chef fee · $100 per person",
+    "The Coastal": "$900 chef fee · $105 per person",
+    "Fromage, Antipasti & Salumi": "$50 per person · Minimum 4 guests",
+    "Hors d’Oeuvres": "$50 per person · Choose three · Two pieces each per guest",
+    "Fruits de Mer": "Market price",
+    "Mixologist, Sommelier, Server": "$500 service fee each"
+  }
+}

@@ -28,7 +28,8 @@ def nav(v, page):
     else:
         links = [("index.html", "Home"), ("menus.html", "Menus"), ("contact.html", "Contact")]
         extra = ""
-    items = "".join(f'<a href="{h}"{" aria-current=\"page\"" if h.startswith(page) else ""}>{t}</a>' for h, t in links)
+    cur = ' aria-current="page"'
+    items = "".join(f'<a href="{h}"{cur if h.startswith(page) else ""}>{t}</a>' for h, t in links)
     return (f'<header class="nav"><div class="in"><a class="mark" href="index.html">{v["mark"]}</a>'
             f'<nav aria-label="Main">{items}{extra}</nav></div></header>')
 
@@ -138,7 +139,8 @@ def home_body(v):
 def menu_card(name, line, items):
     li = "".join(f"<li>{e(i)}</li>" for i in items)
     sub = f'<p class="m-line">{e(line)}</p>' if line else ""
-    return f'<article class="menu"><h3>{e(name)}</h3>{sub}<ul>{li}</ul></article>'
+    price = f'<p class="m-price">{e(price_for(name))}</p>'
+    return f'<article class="menu"><h3>{e(name)}</h3>{sub}{price}<ul>{li}</ul></article>'
 
 
 def menus_list(v):
@@ -191,7 +193,7 @@ MENU_KINDS = dict(list=menus_list, tabs=menus_tabs, rows=menus_rows, accordion=m
 
 
 def menus_body(v):
-    head = f'''<section class="page-head"><div class="in"><p class="kicker">Sample menus</p><h1>Menus</h1><p>{e(MENU_INTRO)}</p></div></section>'''
+    head = f'''<section class="page-head"><div class="in"><p class="kicker">Sample menus</p><h1>Menus</h1><p>{e(MENU_INTRO)}</p><p class="m-pnote">{e(PRICE_NOTE)}</p></div></section>'''
     foot = f'<section class="m-extra"><div class="in"><p>{e(EXTRAS)}</p></div></section>'
     return head + MENU_KINDS[v["menu_kind"]](v) + foot
 
@@ -231,6 +233,8 @@ p{margin:0}
 .soft{display:inline-block;margin-top:20px;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
 .offer{list-style:none;margin:0;padding:0}
 .menu ul{list-style:none;margin:0;padding:0}
+.m-price{margin-top:6px;font-size:.88rem;font-weight:600;letter-spacing:.01em;color:var(--accent);font-variant-numeric:lining-nums tabular-nums}
+.m-pnote{margin-top:10px;font-size:.88rem;color:var(--muted)}
 .strip{display:flex;gap:var(--sgap,8px);overflow-x:auto;scroll-snap-type:x mandatory;padding-left:max(var(--gut,24px), env(safe-area-inset-left, 0px))}
 .strip figure{flex:0 0 auto;scroll-snap-align:start}
 .c-form{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
