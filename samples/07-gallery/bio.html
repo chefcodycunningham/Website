@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bio · Cody Cunningham</title>
+<meta name="description" content="Cody Cunningham, private chef in the Vail Valley. Dinner parties, family-style feasts, ski-week stays, cocktail hours and cooking classes in your home.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.65}
+img{display:block;max-width:100%;width:100%;height:100%;object-fit:cover}
+figure{margin:0;overflow:hidden}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:inherit;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+.in{max-width:var(--max,1240px);margin:0 auto;padding-left:max(var(--gut,24px), env(safe-area-inset-left, 0px));padding-right:max(var(--gut,24px), env(safe-area-inset-right, 0px))}
+.nav .in{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:22px}
+.nav nav{display:flex;gap:clamp(14px,2.5vw,32px)}
+.nav a{text-decoration:none}
+.kicker{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+.soft{display:inline-block;margin-top:20px;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.offer{list-style:none;margin:0;padding:0}
+.menu ul{list-style:none;margin:0;padding:0}
+.strip{display:flex;gap:var(--sgap,8px);overflow-x:auto;scroll-snap-type:x mandatory;padding-left:max(var(--gut,24px), env(safe-area-inset-left, 0px))}
+.strip figure{flex:0 0 auto;scroll-snap-align:start}
+.c-form{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.c-form label{display:grid;gap:4px;min-width:0}
+.c-form .wide{grid-column:1/-1}
+.c-form input,.c-form textarea{font:inherit;color:inherit;width:100%;min-width:0}
+.c-form textarea{resize:vertical}
+.c-form button{font:inherit;cursor:pointer}
+.c-send{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.c-direct{display:flex;gap:10px;flex-wrap:wrap}
+.places{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap}
+.samplebar{font:12px/1.4 system-ui,sans-serif;background:#111;color:#ddd;text-align:center;padding:7px max(16px, env(safe-area-inset-left, 0px))}
+.samplebar a{color:#fff}
+@media (max-width:640px){.c-form{grid-template-columns:1fr}}
+
+.hero-full{position:relative;height:min(84vh,860px);min-height:460px;color:#fff}
+.hero-full .hero-img{position:absolute;inset:0}
+.hero-full::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,0) 55%)}
+.hero-full .hero-copy{position:absolute;left:0;right:0;bottom:0;z-index:1;padding-bottom:clamp(28px,6vw,64px)}
+.hero-split{display:grid;grid-template-columns:1fr 1.3fr;min-height:min(86vh,840px)}
+.hero-split .hero-copy{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(32px,6vw,88px) max(24px, env(safe-area-inset-left, 0px))}
+.hero-split .hero-pic{min-height:420px}
+.hero-type .in{padding-block:clamp(56px,10vw,140px) clamp(32px,5vw,64px)}
+.bleed{height:min(78vh,760px)}
+.hero-mosaic .in{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(24px,4vw,64px);padding-block:clamp(24px,4vw,48px) clamp(40px,6vw,80px);align-items:end}
+.mos{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:8px;height:clamp(400px,58vw,720px)}
+.mos .m1{grid-row:span 2}
+.hero-strip .hero-copy{padding-block:clamp(40px,7vw,100px) clamp(24px,4vw,48px)}
+.strip figure{height:clamp(340px,52vw,600px);aspect-ratio:4/5}
+.offers .in{padding-block:clamp(56px,8vw,112px)}
+.offer{display:flex;flex-wrap:wrap;gap:6px 28px;margin-top:16px}
+.gallery .grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:clamp(200px,28vw,400px);gap:var(--ggap,8px)}
+.gallery .g0{grid-column:span 2}
+.gallery .g3{grid-row:span 2}
+.intro .in{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,6vw,96px);align-items:center;padding-block:clamp(64px,9vw,128px)}
+.intro-pic{aspect-ratio:4/5}
+.intro-copy p+p{margin-top:16px}
+.intro-copy .lead{margin-top:14px}
+.intro-copy .places{margin-top:24px;gap:8px 20px}
+.page-head .in{padding-block:clamp(48px,8vw,112px) clamp(32px,4vw,56px);max-width:var(--max,1240px)}
+.page-head p:last-child{max-width:36em;margin-top:18px}
+.m-sec .in{padding-block:clamp(48px,7vw,96px)}
+.m-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:clamp(24px,4vw,44px)}
+.m-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:clamp(28px,4vw,48px) clamp(24px,3vw,40px)}
+.menu h3{margin-bottom:4px}
+.menu ul{margin-top:12px;display:grid;gap:6px}
+.m-pic.bleed{height:min(70vh,640px)}
+.m-tabs .in{padding-block:0 clamp(48px,7vw,96px)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px 22px;margin-bottom:clamp(28px,4vw,48px)}
+.tabs button{font:inherit;background:none;border:0;padding:6px 0;cursor:pointer;color:inherit;opacity:.5;border-bottom:1px solid transparent}
+.tabs button[aria-selected=true]{opacity:1;border-bottom-color:currentColor}
+.m-panel{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(28px,5vw,72px);align-items:start}
+.m-panel .m-pic{aspect-ratio:4/5;position:sticky;top:24px}
+.m-panel .m-note{margin-bottom:24px}
+.m-head+.m-row,.m-row{padding-block:clamp(20px,3vw,40px)}
+.m-row .in{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,5vw,80px);align-items:center}
+.m-row figure{aspect-ratio:4/3}
+.m-row.flip figure{order:2}
+.m-row + .in .m-head{margin-top:clamp(48px,7vw,96px)}
+.m-accs .in{padding-bottom:clamp(48px,7vw,96px)}
+.m-acc{border-top:1px solid var(--line)}
+.m-acc:last-child{border-bottom:1px solid var(--line)}
+.m-acc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-block:22px;flex-wrap:wrap}
+.m-acc summary::-webkit-details-marker{display:none}
+.m-acc-body{display:grid;grid-template-columns:1fr 2fr;gap:clamp(24px,4vw,56px);padding-bottom:40px}
+.m-acc-body .m-pic{aspect-ratio:4/5}
+.m-extra .in{padding-block:0 clamp(48px,6vw,80px)}
+.bio .in{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,6vw,96px);padding-block:clamp(40px,7vw,96px)}
+.bio-portrait{aspect-ratio:4/5;position:sticky;top:24px;align-self:start}
+.bio-copy h1{margin:12px 0 24px}
+.bio-copy p+p{margin-top:16px}
+.bio-copy .places{margin-top:32px;gap:8px 22px}
+.bio-pics .in{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--ggap,8px)}
+.bio-pics figure{aspect-ratio:1}
+.quote .in{padding-block:clamp(64px,9vw,128px);max-width:900px}
+.quote blockquote{margin:0}
+.quote cite{display:block;margin-top:18px;font-style:normal}
+.contact .in{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(28px,5vw,80px);padding-block:clamp(48px,7vw,96px)}
+.c-intro .c-direct{margin-top:14px}
+.contact.band .in{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.contact.band .c-direct{align-items:baseline;gap:20px}
+.contact.band .soft{margin-top:0}
+.contact-page .in{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);padding-block:clamp(24px,4vw,56px) clamp(56px,8vw,112px)}
+.cp-pic{min-height:420px}
+.cp-body h1{margin:12px 0 20px}
+.cp-body .c-direct{margin:20px 0 32px;gap:8px 20px}
+.foot .in{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:22px;font-size:.8rem}
+@media (max-width:860px){
+ .hero-split,.hero-mosaic .in,.intro .in,.m-panel,.m-row .in,.m-acc-body,.bio .in,.contact .in,.contact-page .in{grid-template-columns:1fr}
+ .hero-split .hero-pic{order:-1;min-height:0;height:62vh}
+ .hero-split{min-height:0}
+ .m-row.flip figure{order:0}
+ .m-panel .m-pic,.bio-portrait{position:static;aspect-ratio:4/3}
+ .m-acc-body .m-pic{aspect-ratio:16/9}
+ .mos{height:440px}
+ .gallery .grid{grid-template-columns:1fr 1fr;grid-auto-rows:44vw}
+ .gallery .g3{grid-row:auto}
+ .bio-pics .in{grid-template-columns:1fr 1fr}
+ .cp-pic{min-height:0;height:46vh}
+}
+
+:root{--bg:#FFFFFF;--fg:#0E0E0E;--muted:#7B7B7B;--line:#E9E9E9;--accent:#0E0E0E;--body:"Inter Tight",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;color-scheme:light}
+body{font-size:16px}
+.mark{font-weight:500}.nav nav a,.kicker,.m-line,.places li,.c-form span,.foot,.m-head p,.c-direct{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;text-transform:uppercase}
+.nav nav a{color:var(--muted)}.nav nav a[aria-current]{color:var(--fg)}
+.kicker{color:var(--muted);letter-spacing:.08em}
+.hero-mosaic .in{grid-template-columns:.8fr 1.6fr}
+.hero-mosaic h1{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;line-height:1.1;letter-spacing:-.02em}
+.hero-mosaic p{margin-top:16px;color:#4A4A4A;max-width:22em}
+.mos{gap:3px}.gallery .grid{--ggap:3px}.bio-pics .in{--ggap:3px}
+.offer{gap:4px 22px}.offer li{font-size:clamp(1.2rem,2.2vw,1.7rem);font-weight:300}
+.intro .lead{font-size:1.25rem}.intro-copy p{color:#4A4A4A}
+.page-head h1,.bio-copy h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:400;letter-spacing:-.03em}
+.m-head{border-top:1px solid var(--fg);padding-top:12px}.m-head h2{font-size:1.4rem;font-weight:500}
+.menu h3{font-size:1.1rem;font-weight:500}.menu li{color:#4A4A4A;font-size:.94rem}
+.m-pic.bleed{height:min(60vh,560px)}
+.quote blockquote{font-size:clamp(1.4rem,2.8vw,2.2rem);font-weight:300;letter-spacing:-.02em;line-height:1.3}.quote cite{font-family:var(--mono);font-size:.74rem;text-transform:uppercase;color:var(--muted)}
+.places li{color:var(--muted)}
+.contact{border-top:1px solid var(--fg)}.contact h2{font-size:1.6rem;font-weight:400;margin-top:10px}
+.c-form input,.c-form textarea{border:1px solid #D6D6D6;padding:11px;border-radius:0;background:#fff}
+.c-form button{background:var(--fg);color:#fff;border:0;padding:12px 26px;font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+.foot{color:var(--muted)}
+</style>
+</head>
+<body class="p-bio">
+<div class="samplebar">Sample 7 of 8 · Gallery · <a href="../index.html">All samples</a></div>
+<header class="nav"><div class="in"><a class="mark" href="index.html">Cody Cunningham</a><nav aria-label="Main"><a href="index.html">Home</a><a href="menus.html">Menus</a><a href="bio.html" aria-current="page">Bio</a><a href="#contact" class="nav-contact">Contact</a></nav></div></header>
+<main><section class="bio"><div class="in">
+  <figure class="bio-portrait"><img src="../../assets/img/portrait.jpg" alt="Chef Cody Cunningham in chef&#x27;s whites" style="object-position:center 15%"></figure>
+  <div class="bio-copy"><p class="kicker">Bio</p><h1>Cody Cunningham</h1><p>I learned to cook on a stool beside my grandmother, and was making béchamel for breakfast at six. Growing up in Bozeman, Montana meant wild game, foraged mushrooms and mountain berries, and I&#x27;ve cooked that way ever since.</p><p>The work has taken me a long way from Montana: a nonprofit café on a permaculture farm in Tamil Nadu, cooking with millets and native grains; kitchens in Melbourne and Byron Bay, where I fell for lemon myrtle and bush pepper; then back to the mountains, at Sweet Basil and Mountain Standard, and as executive chef of Larkspur in Vail.</p><p>Now I cook in people&#x27;s homes. My wife is Italian, we live in Avon, and we go back to Italy every year to eat. Her mother&#x27;s tiramisù is on my menus.</p>
+    <ol class="places" aria-label="Where I've cooked"><li>Bozeman</li><li>Tamil Nadu</li><li>Melbourne</li><li>Byron Bay</li><li>Vail</li></ol></div>
+</div></section>
+<section class="bio-pics"><div class="in"><figure><img src="../../assets/img/foie-torchon.jpg" alt="Foie torchon, rabbit terrine, cherry" loading="lazy"></figure><figure><img src="../../assets/img/sea-bass.jpg" alt="Sea bass, asparagus, shallot and turnip" loading="lazy"></figure><figure><img src="../../assets/img/king-crab-caviar.jpg" alt="King crab and caviar over fresh pasta" loading="lazy"></figure></div></section>
+<section class="quote"><div class="in"><blockquote>“What you feel like eating at any given moment is what you should have.”<cite>Ferran Adrià</cite></blockquote></div></section></main>
+<section class="contact" id="contact"><div class="in">
+  <div class="c-intro">
+    <p class="kicker">Contact</p>
+    <h2>Tell me about the evening you have in mind.</h2>
+    <p class="c-direct"><span>970-470-2339</span><span>Call or text</span></p>
+    <p class="c-direct"><a href="https://www.instagram.com/chefcodycunningham/">@chefcodycunningham</a></p>
+  </div>
+  <form class="c-form" novalidate data-form>
+    <label><span>Name</span><input id="c-name-07-gallery" name="name" autocomplete="name"></label>
+    <label><span>Email or phone</span><input id="c-reach-07-gallery" name="reach"></label>
+    <label><span>Date</span><input id="c-date-07-gallery" name="date" type="date"></label>
+    <label><span>Guests</span><input id="c-guests-07-gallery" name="guests" type="number" min="1" inputmode="numeric"></label>
+    <label class="wide"><span>The occasion, where you're staying, anything I should know</span><textarea id="c-note-07-gallery" name="note" rows="3"></textarea></label>
+    <div class="wide c-send"><button type="submit">Send</button><p class="c-done" hidden>Thank you. I'll be in touch within a day. (Sample form, nothing was sent.)</p></div>
+  </form>
+</div></section><footer class="foot"><div class="in"><span>Cody Cunningham · Private Chef · Avon, Colorado</span><span>970-470-2339</span></div></footer>
+<script>
+document.querySelectorAll('[data-form]').forEach(f=>f.addEventListener('submit',ev=>{ev.preventDefault();f.querySelector('.c-done').hidden=false;}));
+const tabs=[...document.querySelectorAll('[role=tab]')];
+tabs.forEach(t=>t.addEventListener('click',()=>tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);document.getElementById(x.getAttribute('aria-controls')).hidden=!on;})));
+</script>
+</body>
+</html>
