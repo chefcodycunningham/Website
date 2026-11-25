@@ -1,8 +1,4 @@
-"""Site copy and menus shared by every sample design.
-
-Prices come from tools/prices.json, which tools/sync_prices.py copies out of the private
-menus repo (current season only). Edit prices there, never here."""
-import json, os
+"""Site copy and menus shared by every sample design. No prices, by request."""
 
 PHONE = "970-470-2339"
 INSTAGRAM = "https://www.instagram.com/chefcodycunningham/"
@@ -136,32 +132,7 @@ MENUS = [
     ]),
 ]
 
-_PRICE_DATA = json.load(open(os.path.join(os.path.dirname(__file__), "prices.json"), encoding="utf-8"))
-SEASON = _PRICE_DATA["season"]
-_PRICES = _PRICE_DATA["prices"]
-
-# Sample-site menu name -> name in the season's menu.md, where they differ.
-_ALIASES = {
-    "Italian Night": "Italian Favorites",
-    "Korean Barbecue": "Korean BBQ: An Asian Lettuce-Cup Taco Bar",
-    "Mediterranean": "Mediterranean Surf and Turf",
-    "Hors d'Oeuvres": "Hors d’Oeuvres",
-    "Fromage & Salumi": "Fromage, Antipasti & Salumi",
-    "Sushi Workshop": "Sushi Making Workshop",
-}
-# Menus with no published price (custom events and stays).
-_CUSTOM = "Priced to your event"
-
-
-def price_for(name):
-    """Price line for a sample menu, e.g. '$850 chef fee · $120 per person'."""
-    return _PRICES.get(_ALIASES.get(name, name), _CUSTOM)
-
-
-PRICE_NOTE = (f"{SEASON} pricing: a chef fee plus a per-person fee. Menus and prices can change "
-              "with availability, season and guest count.")
-
-EXTRAS = (f"A sommelier, mixologist or server can join any dinner: {price_for('Mixologist, Sommelier, Server')}. "
+EXTRAS = ("A sommelier, mixologist or server can join any dinner. "
           "A server is required for plated dinners of 8 or more guests.")
 
 # Photo library, path relative to assets/img
